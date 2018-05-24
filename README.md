@@ -1,3 +1,4 @@
-# singularity-presentation
+# JupyterCon-2018-talk
 
-Singularity does address an actual problem.  Is it novel?  Not so much.
+Talk about LSST k8s+JH+JL at JupyterCon 2018
+
