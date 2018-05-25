@@ -1,8 +1,8 @@
-:css: css/talk.css
+.. :css: css/talk.css
 
 .. That's the light-background version.
 
-.. Commenting out :css: css/talk_dark.css
+:css: css/talk_dark.css
 
 ..  Swap that in if you want the dark-background version
 
@@ -56,7 +56,7 @@ thorough overview:
 
 .. _LSST Key Numbers: https://confluence.lsstcorp.org/display/LKB/LSST+Key+Numbers
 
-.. _LSST Overview Paper: https://arxiv.org/pdf/0805.2366.pdf
+.. _LSST Overview Paper: https://arxiv.org/abs/0805.2366
 
 ----
 
@@ -132,8 +132,9 @@ Depth isn't everything
 * 40 full moons; roughly a CD held at arm's length.
 * JWST, by contrast, is 9.7 arcmin^2, so roughly 1/3600 of LSST.
 
-.. image:: images/camera.gif
-  :height: 600px
+.. image:: images/fov.png
+  :height: 400px
+  :align: center
 
 ----
 
@@ -147,9 +148,10 @@ Camera
 * Two exposures per visit (to do cosmic-ray/atmospheric transient
   rejection).
 
-.. image:: images/camera.gif
-  :height: 600px
-
+.. image:: images/camera.png
+  :height: 400px
+  :align: center
+  
 ----
 
 `LSST Mirror Design`_
@@ -165,7 +167,8 @@ Camera
 .. _LSST Mirror Design: https://www.lsst.org/about/tel-site/mirror
 
 .. image:: images/mirror.gif
-  :height: 600px
+  :height: 400px
+  :align: center
 
 ----
 
@@ -189,7 +192,7 @@ Observations of Celestial Objects
     fortyfold increase from current detection capabilities, from a
     single instrument.
     
-  * A supernova explodes in a Milky-Way-scale galaxy one every few
+  * A supernova explodes in a Milky-Way-scale galaxy once every few
     hundred years.
     
   * One goes off somewhere in the observable universe roughly every ten
@@ -200,8 +203,12 @@ Observations of Celestial Objects
 
 ----
 
+|
+
+----
+
 Astronomical Research Status Quo
-================================
+################################
 
 Typically, astronomical research has been done with:
 
@@ -220,13 +227,19 @@ Typically, astronomical research has been done with:
 Obvious Failure Modes
 #####################
 
-Usual Things About Personal Machines
-====================================
+Personal or Departmental Machines
+=================================
 
 * A pretty beefy computer from ten years ago is today's worthless
-  paperweight
-* Laptops get stolen a lot
-* Individuals often are not careful about backing up data
+  paperweight.
+* Laptops get stolen a lot.
+* Individuals often are not careful about backing up data.
+* Academic departments care about research in their fields, not about IT
+  practices.
+
+    * Your departmental system administrator is almost certainly a
+      graduate student doing it on the side.
+    * You don't have the budget for offsite backups and decent DR.
 
 ----
 
@@ -260,12 +273,15 @@ Obvious Failure Modes
 Scale of the Data
 =================
 
-* Are you really going to download half an exabyte?
-    * The input is 40 Gbps all night each night for 10 years.  How long
-      is it going to take you to slurp it back out of the data center?
-* "Big Data is data you cannot pick up."
-    * Is half an exabyte still going to be Big Data in 2032?
-    * I wouldn't bet *against* it.
+Are you really going to download half an exabyte?
+
+* The input is 40 Gbps all night each night for 10 years.  How long
+  is it going to take you to slurp it back out of the data center?
+
+"Big Data is data you cannot pick up."
+
+* Is half an exabyte still going to be Big Data in 2032?
+* I wouldn't bet *against* it.
   
 ----
 
@@ -275,22 +291,31 @@ Data Access
 Traditionally, you jealously guard your data so that you can publish
 first and not get scooped.
 
-* This works for small collaborations.
-* LSST has thousands of researchers with data rights.
+* This works fine for small collaborations and projects.
+
+* LSST, on the other hand, has thousands of researchers with data
+  rights.
+
 * And anyway there's so much data that access to the analysis is going
   to be much more valuable than access to the data.
-  
-    * Not *quite* true, hence the complicated data rights schemes we
-      have...
-    * Which turn out to be very broad.  Like, everyone affiliated with a
-      US or Chilean institution, plus anyone affiliated with a member
-      institution...
-    * So maybe 10,000 out of 20,000 professional astronomers or advanced
-      students...
-    * Any of whom can invite someone to collaborate with them on a
-      paper...
-    * So except for the two people who don't have any friends...
-        * And they're theorists anyway.
+
+    * Not everyone gets this, yet.
+
+----
+
+Data Rights
+###########
+
+LSST has a fairly complicated data rights scheme...
+
+* Which turns out to be very broad.  Like, everyone affiliated with a US
+  or Chilean institution, plus anyone affiliated with a member
+  institution...
+* So maybe 10,000 out of 20,000 professional astronomers or advanced
+  students...
+* Any of whom can invite someone to collaborate with them on a paper...
+* So except for the two people who don't have any friends...
+    * They're theorists anyway.
 
 
 ----
@@ -350,8 +375,11 @@ The trickiest design goal is that we cannot make any researcher's life
 significantly worse.
 
 Obviously the current system isn't ideal:
+
 * Large, complex, bespoke analysis stack.
+
 * Hugely complicated installation and configuration.
+
 * Enormous amounts of technical debt.
 
 But...it also gets the job done.
@@ -371,6 +399,11 @@ developed is that someone takes a version (either a release version,
 approximately every 6 months, or a weekly build) and works on their own
 little corner of it in a conda or pip environment.  We must support
 that.
+
+----
+
+Community of Stakeholders
+#########################
 
 People Concerned With Data Rights
 =================================
@@ -394,6 +427,11 @@ and enable citizen science, but not so much, or of such fidelity, that
 someone without data rights can scoop a researcher with data rights.
 
 It is not entirely clear to me that this is possible.
+
+----
+
+Community of Stakeholders
+#########################
 
 Established Astronomers
 =======================
@@ -428,24 +466,38 @@ easier sell.
 
 ----
 
-A Better World
-##############
+|
 
-Let's imagine:
+----
+
+What Do We Want?
+################
+
+Let's imagine a better world:
 
 * You don't need to spend hours-to-weeks setting up the software
   environment.
+* In fact, all that's needed for analysis is a web browser.  Compute and
+  data storage happen somewhere else.
 * You have a single login to manage your access to the environment.
-* All you need is a web browser.  Compute and data storage happen
-  somewhere else.
 * You don't need to pick a data subset that will fit on your laptop or
   your desktop NAS.
-* Logs and metrics are collected, centralized, and presented on an ops
-  dashboard.
-* Standardized, modular infrastructure, allowing piece-by-piece
-  component replacement of your application stack.
-* And supportive of a publication paradigm that enables reproducability
-  of results.
+* The analysis is running on professionally-maintained machines in a
+  real datacenter somewhere that it isn't your problem.
+
+----
+
+Let's Think Bigger
+##################
+
+* Logging and metrics are aggregated, centralized, and reported on an
+  operations dashboard.
+* The analysis environment supports a publication paradigm that enables
+  verification and reproducability of results.
+* The analysis environment is amenable to a bring-your-own-data
+  approach.
+* There's a standardized, modular infrastructure, allowing
+  piece-by-piece component replacement of your application stack.
 
 ----
 
@@ -470,12 +522,56 @@ JupyterHub + JupyterLab + Kubernetes
 Abstraction and Layering
 ########################
 
-* Virtualization lets you not care about the specifics of your hardware.
-* Containerization lets you not care about managing the OS/distribution
-  layer.
+* Virtualization lets you stop caring about the specifics of your
+  hardware.
+* Containerization lets you stop caring about managing the
+  OS/distribution layer.
 * Kubernetes gives you a standardized way to talk about container
-  orchestration without having to care how your containers talk to each
-  other or how that network talks to the outside world.
+  orchestration and lets you stop caring how your containers talk to
+  each other or how the container network talks to the outside world and
+  vice versa.
+
+----
+
+Specifying Resources
+####################
+
+You can say, "I need a kubernetes cluster that..."
+
+* has at least 3 nodes, but also at least 0.5 cores per concurrent user;
+  each core with at least 2GB of RAM.
+
+* has individual nodes with at least 8 cores / 16GB RAM.
+
+* has a predefined ingress controller.
+
+* has three service accounts:
+
+    * default privileges for one
+
+    * create/destroy/describe/list pods for the second
+
+    * the same, plus cluster-wide reads, for the third
+
+    * ("or just give me a cluster admin account and I'll take care of
+      it.")
+
+----
+
+Scaling
+#######
+
+Step one: Add more nodes to your cluster.  (Or take some away.)
+
+* In a public cloud, this is really, really easy.  Perhaps even
+  automated.
+
+Step two: Change the replica counts in your deployments.
+
+* You can turn this into a closed-loop automated system by monitoring
+  your load too.
+
+There is no step three.
 
 ----
 
@@ -485,19 +581,15 @@ The Long Bet
 Kubernetes will save astronomy.
 
 * It's the first time we've had a functional abstraction layer that
-  allows you to specify architectural designs.
-
-    * Get rid of: "you need Solaris 10 on SPARC, and Sybase (not Postgres!)
-      and Websphere MQ, and..."
-    * Instead: "We need a kubernetes cluster with a predefined
-      nginx-ingress-controller and three service accounts: default
-      access is fine for the first, the second needs to be able to
-      create, destroy, describe, and list pods, and the third has to do
-      that plus do cluster-wide read operations."
-* Then you can create complex multicomponent applications that will run
-  on any suitable cluster.
+  allows you to specify scalable architectural designs.
+* This lets you create complex multicomponent applications that will run
+  on any suitable cluster, with built-in lifecycle management.
+* And because it's modular, you can use best-practice patterns for all
+  the infrastructure and only *really* care about managing the analysis
+  stack that is your actual application.
 
 ----
+
 
 Modularity
 ##########
@@ -508,9 +600,36 @@ Modularity
 * Retain the robust infrastructure with component lifecycle management
   and automated resource allocation.
 
+This lets you both have your cake and eat it.  You get to use whatever
+insanely complex analysis framework you want wrapped inside a
+general-purpose, self-healing application architecture.
+
+----
+
+Modularity
+##########
+
+Replacing the payload is a matter of replacing the JupyterLab container
+that is spawned for the user.
+
+Assuming you have the analysis pipeline already, what you need is
+conceptually quite simple, and the implementation is not hard.
+
+* A container that will start a JupyterLab server.
+* Some way to wrap your analysis pipeline up as a Jupyter kernel.
+
+    * Which, assuming it's in a supported language, is probably `a few
+      lines of shell`_.
+
 I would be flabbergasted if this approach were not portable to other
 physical sciences and very possibly to other (and very general) analytic
 problem spaces. 
+
+.. _a few lines of shell: https://github.com/lsst-sqre/jupyterlabdemo/blob/master/jupyterlab/lsstlaunch.bash
+
+----
+
+|
 
 ----
 
@@ -525,8 +644,9 @@ Overview
 The complete implementation is available at `GitHub`_.
 
 .. image:: images/jupyterlab_sp.png
-  :height: 600px
-
+  :height: 400px
+  :align: center
+  
 .. _SQR-018: https://sqr-018.lsst.io/
 
 .. _GitHub: https://github.com/lsst-sqre/jupyterlabdemo
@@ -543,8 +663,21 @@ We have an automated tool for GKE plus DNS at Route53 to deploy.
   
 * Can also generate configuration YAML from templates plus environment
   variables, or from a supplied configuration file.  The YAML can
-  then be hand-tweaked for, e.g., on-premises deployment at our
-  Long-Term Storage Facility.
+  then be hand-tweaked for, e.g., on-premises deployment at the
+  LSST Data Facility.
+
+----
+
+Deployment
+##########
+
+While our `GitHub`_ implementation is very nifty, and useful for
+reference...don't use it.
+
+Use `Zero To JupyterHub`_ instead.
+
+Some day we will probably migrate our deployment to Helm.  LSST EPO
+already has.  Thing is, Helm 
 
 ----
 
@@ -563,6 +696,8 @@ Authentication is annoying and hard.  Let's outsource it.
 
 * However, this is still way too open
 
+`[login_screenshot] <images/screenshots/cilogon.png>`_
+
 ----
 
 Problem 2: Authorization
@@ -580,6 +715,8 @@ Both have concepts of group memberships.
 
 .. _OAuth2 authenticator: https://github.com/lsst-sqre/jupyterlabdemo/blob/master/jupyterhub/sample_configs/github/10-authenticator.py
 
+`[auth_screenshot] <images/screenshots/denylist.png>`_
+
 ----
 
 Problem 3: Global User Consistency
@@ -592,6 +729,8 @@ CILogon does something similar.
 
 Now you have globally consistent users and groups.
 
+`[uid_screenshot] <images/screenshots/uid-gids.png>`_
+
 ----
 
 Problem 4: Restricting User Access
@@ -602,6 +741,8 @@ We control the environment in the newly-created Lab container.
 We use that to provision a user with the right UID+GIDs set.
 
 Then we become that user before starting the JupyterLab server.
+
+`[proc_screenshot] <images/screenshots/processes.png>`_
 
 ----
 
@@ -623,18 +764,25 @@ We have globally unique UIDs and GIDs.
 * We could eventually be cleverer, but we're still going to make it look
   like a POSIX filesystem to our users.
 
+`[filesystem_screenshot] <images/screenshots/filesystem.png>`_
+
 ----
 
 Problem 6: User Access Restriction
 ##################################
 
-Don't give your users ``sudo``.
+Don't give your users ``sudo``.  Heck, don't even give them passwords.
 
 Globally-consistent UID and GIDs.
 
 You're done.
 
 Users can still override bits of the stack with ``pip install --user``.
+
+* Put something on the options form that lets the user clear
+  ``$HOME/.local``.  Trust me on this.
+
+`[sudo_screenshot] <images/screenshots/nosudo.png>`_
 
 ----
 
@@ -650,6 +798,8 @@ scans our repository and presents a menu of recent builds.
 
 .. _options form: https://github.com/lsst-sqre/jupyterlabdemo/blob/master/jupyterhub/sample_configs/github/20-spawner.py
 
+`[options_screenshot] <images/screenshots/options.png>`_
+
 ----
 
 Problem 8: Startup Time and User Frustration
@@ -657,11 +807,15 @@ Problem 8: Startup Time and User Frustration
 
 Our images are huge and take on the order of 15 minutes to pull.
 
-So we pre-pull them.
+* "So don't do that."
+* Unless your analysis stack is inherently gargantuan...
+* ...so we pre-pull them.
 
 Within, say, an hour and a half of building (which is usually in the
 middle of the night) each image is available on each node and therefore
 starts quickly.
+
+`[prepuller_screenshot] <images/screenshots/prepuller.png>`_
 
 ----
 
