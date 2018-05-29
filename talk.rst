@@ -85,29 +85,15 @@ band).  That's very faint.  How faint?
 Depth
 =====
 
-Every 5 magnitudes is a factor of 100 in brightness
----------------------------------------------------
-
-Astronomy, being a science that existed before the Scientific
-Revolution, has a truly astonishing amount of tech debt in its
-nomenclature.
-
-Magnitude as a concept dates back to Hipparchus, about 129 BCE.
-Numerical magnitude dates to Ptolemy (c. 140 CE).  The fifth root of 100 as a precise quantification dates to 1856 and Norman
-R. Pogson.
-
-----
-
-What Can LSST See?
-##################
-
-Depth
-=====
+Every five magnitudes is a factor of 100 in brightness.  You want tech
+debt?
 
 Your eyes: 6 magnitude.  Mmmmmaybe 8 under ideal conditions.  Ptolemy's
 faintest stars are "of the sixth magnitude."
 
 A good amateur scope: 14ish magnitude (eyes), around 20 with CCDs
+
+----
 
 LSST depth
 ----------
@@ -677,7 +663,12 @@ reference...don't use it.
 Use `Zero To JupyterHub`_ instead.
 
 Some day we will probably migrate our deployment to Helm.  LSST EPO
-already has.  Thing is, Helm 
+already has.
+
+* Not convinced Helm is the future.
+
+* We need something like Helm but with sequencing as well.  Templates
+  are the easy part.
 
 ----
 
