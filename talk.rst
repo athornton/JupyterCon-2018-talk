@@ -95,14 +95,17 @@ A good amateur scope: 14ish magnitude (eyes), around 20 with CCDs
 
 ----
 
+Depth
+#####
+
 LSST depth
-----------
+==========
 * Saturates at 16 magnitude
 * Single-visit (red) 24.7 magnitude
 * 10-year stacked depth (red) 27.5 magnitude
 
 Not the deepest
----------------
+===============
 
 * Hubble Space Telescope: 31.
 * James Webb Space Telescope: 34 magnitude (expected)
