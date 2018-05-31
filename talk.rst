@@ -9,6 +9,9 @@
 :title: If The Data Will Not Come To The Astronomer...
 :author: Adam Thornton
 
+.. role:: raw-role(raw)
+    :format: html
+
 If The Data Will Not Come To The Astronomer...
 ##############################################
 
@@ -117,9 +120,9 @@ Field of view
 
 Depth isn't everything
 
-* Humongous: 9.62 degrees^2
+* Humongous: 9.62 degrees :raw-role:`<sup>2</sup>`
 * 40 full moons; roughly a CD held at arm's length.
-* JWST, by contrast, is 9.7 arcmin^2, so roughly 1/3600 of LSST.
+* JWST, by contrast, is 9.7 arcmin :raw-role:`<sup>2</sup>`, so roughly 1/3600 of LSST.
 
 .. image:: images/fov.png
   :height: 400px
@@ -498,7 +501,7 @@ The Big Reveal
 JupyterHub + JupyterLab + Kubernetes
 ====================================
 * JupyterLab: the UX is much better than the classic notebook.
-  Multiple panes within a single broswer tab, including terminal
+  Multiple panes within a single browser tab, including terminal
   sessions, is a tremendous feature, giving users basically an IDE.
 * JupyterHub: the obvious choice for access control and resource
   allocation brokering.  Authenticator and Spawner subclasses let us
