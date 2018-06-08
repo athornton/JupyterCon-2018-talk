@@ -60,15 +60,11 @@ someone without data rights can scoop a researcher with data rights.</p><p>It is
 data representations, but dangit FORTRAN IV and FITS were good enough
 for my grandpappy an' they're good enough for me!  GET OFFA MY LAWN!</p><p>In practice: you need a Terminal window that gives you shell access to
 something that looks like a Unix system.  We mimic a system on which you
-have an unprivileged account, which is very familiar to academic users.</p></div><div class="step step-level-1" step="26" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="41600" data-y="0" data-z="0"><h1 id="id9">Community of Stakeholders</h1><h2 id="security-and-more-generally-operations">Security (and more generally Operations)</h2><p>We understand how to create virtual machines and set them up as
-multi-user systems.  But you want an ephemeral container?  That has
-write access to certain filesystems?  That isn't going to be around long
-enough to go through our Qualys scan and patching procedure?  That needs
-to be available so quickly we can't even set it up with Puppet?  Are you
-insane?</p><p>If we make it look like an existing multi-user system, with write access
-to home directories and scratch space, but not the OS, and we show that
-we can completely characterize what is in the container, this is a much
-easier sell.</p></div><div class="step step-level-1" step="27" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="43200" data-y="0" data-z="0"><div class="line-block"><br></br></div></div><div class="step step-level-1" step="28" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="44800" data-y="0" data-z="0"><h1 id="what-do-we-want">What Do We Want?</h1><p>Let's imagine a better world:</p><ul><li>You don't need to spend hours-to-weeks setting up the software
+have an unprivileged account, which is very familiar to academic users.</p></div><div class="step step-level-1" step="26" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="41600" data-y="0" data-z="0"><h1 id="id9">Community of Stakeholders</h1><h2 id="security-and-more-generally-operations">Security (and more generally Operations)</h2><img src="images/Dumpsterfire.gif" height="300px"></img><p>It's a fair cop, but if if we make it look like an existing multi-user
+system, where the user doesn't have <tt>root</tt> or <tt>sudo</tt> within the
+container, and has write access only to <tt>${HOME}</tt> and scratch space
+but not the OS, and furthermore we show that we can completely
+characterize the container's contents, it's a much easier sell.</p></div><div class="step step-level-1" step="27" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="43200" data-y="0" data-z="0"><div class="line-block"><br></br></div></div><div class="step step-level-1" step="28" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="44800" data-y="0" data-z="0"><h1 id="what-do-we-want">What Do We Want?</h1><p>Let's imagine a better world:</p><ul><li>You don't need to spend hours-to-weeks setting up the software
 environment.</li><li>In fact, all that's needed for analysis is a web browser.  Compute and
 data storage happen somewhere else.</li><li>You have a single login to manage your access to the environment.</li><li>You don't need to pick a data subset that will fit on your laptop or
 your desktop NAS.</li><li>The analysis is running on professionally-maintained machines in a
