@@ -444,17 +444,16 @@ Community of Stakeholders
 Security (and more generally Operations)
 ========================================
 
-We understand how to create virtual machines and set them up as
-multi-user systems.  But you want an ephemeral container?  That has
-write access to certain filesystems?  That isn't going to be around long
-enough to go through our Qualys scan and patching procedure?  That needs
-to be available so quickly we can't even set it up with Puppet?  Are you
-insane?
+.. image:: images/Dumpsterfire.gif
+  :height: 300px
+  :align: center
 
-If we make it look like an existing multi-user system, with write access
-to home directories and scratch space, but not the OS, and we show that
-we can completely characterize what is in the container, this is a much
-easier sell.
+
+It's a fair cop, but if if we make it look like an existing multi-user
+system, where the user doesn't have ``root`` or ``sudo`` within the
+container, and has write access only to ``${HOME}`` and scratch space
+but not the OS, and furthermore we show that we can completely
+characterize the container's contents, it's a much easier sell.
 
 ----
 
