@@ -164,6 +164,23 @@ Camera
 
 ----
 
+Cost
+####
+
+* Telescope: about $500 million (all numbers in 2013 dollars)
+
+* Camera: about $165 million
+
+* Operations
+
+  * A little more than a dollar a second
+
+  * On the order of $100,000 a day
+
+  * Roughly $35 million a year
+
+----
+
 Data Collection
 ###############
 
