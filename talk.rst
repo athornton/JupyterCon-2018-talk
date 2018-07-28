@@ -53,7 +53,7 @@ thorough overview:
 
 * The Large Synoptic Survey Telescope is funded by the National Science
   Foundation and the Department of Energy, as well as a host of other
-  donors, public and private.
+  generous donors, public and private.
 
 .. _Andy Connolly's LSST TED Talk: https://www.ted.com/talks/andrew_connolly_what_s_the_next_window_into_our_universe
 
@@ -134,11 +134,11 @@ Camera
 ======
 
 * Focal plane array: 3.2 Gpixels
-* 189 4K x 4K sensors
+* 189 4K x 4K sensors (roughly 400 4K monitors)
 * 18 bits per pixel
 * Each exposure 15 seconds
 * Two exposures per visit (to do cosmic-ray/atmospheric transient
-  rejection).
+  rejection--and a bit of science).
 
 .. image:: images/camera.png
   :height: 400px
@@ -184,10 +184,14 @@ Cost
 Data Collection
 ###############
 
-* On the order of 20 TB a night (100x SDSS)
-* Half an exabyte in the final image collection by operational EOL (DR11)
-* Largest non-proprietary data set, period.
+* On the order of 20 TB a night (entire SDSS DR7 every three nights)
+* Half an exabyte in the final image collection by operational EOL
+  (DR11)
 * Over one trillion photometric measures of celestial sources
+* Reduced catalogue (which most people will use)
+
+  * Smaller than image collection--order of 50 PB
+  * tens of billions of (complex-structured) rows in a database.
 
 ----
 
@@ -210,6 +214,8 @@ Observations of Celestial Objects
 * Roughly 20 billion galaxies
 * Roughly 20 billion stars
 
+  * So everyone could have about three of each.
+
 ----
 
 |
@@ -219,7 +225,7 @@ Observations of Celestial Objects
 Astronomical Research Status Quo
 ################################
 
-Typically, astronomical research has been done with:
+Historically, astronomical research has been done with:
 
 * Desktop or laptop computer
     * Usually pretty beefy by the standards of the day
@@ -264,15 +270,17 @@ Analysis Software
 * General-purpose in-house analysis stacks are often extremely complex
   and difficult to install.
 
-    * LSST stack's heritage, and a fair bit of the implementation, goes
-      back to SDSS (began collecting data in 2000; obviously the
-      software had been in development long before then).
-    * An installation of the LSST stack from scratch takes hours for
-      experienced users.
-    * Taking weeks to install the first time is not unusual (also
-      consuming experienced users' time).
-    * I myself have never successfully managed a source install from
-      scratch.
+  * LSST stack's heritage, and a fair bit of the implementation, goes
+    back to SDSS (data collection began in 2000; in development earlier)
+
+  * An installation of the LSST stack from scratch takes hours for
+    experienced users.
+
+  * Taking weeks to install the first time is not unusual (also
+    consuming experienced users' time).
+
+  * I myself have never successfully managed a source install from
+    scratch.
 
 ----
 
@@ -301,14 +309,12 @@ Traditionally, you jealously guard your data so that you can publish
 first and not get scooped.
 
 * This works fine for small collaborations and projects.
-
 * LSST, on the other hand, has thousands of researchers with data
   rights.
-
 * And anyway there's so much data that access to the analysis is going
   to be much more valuable than access to the data.
 
-    * Not everyone gets this, yet.
+  * Not everyone gets this, yet.
 
 ----
 
@@ -324,7 +330,8 @@ LSST has a fairly complicated data rights scheme...
   students...
 * Any of whom can invite someone to collaborate with them on a paper...
 * So except for the two people who don't have any friends...
-    * They're theorists anyway.
+
+  * They're theorists anyway.
 
 
 ----
@@ -334,9 +341,10 @@ Data Scale
 
 * Almost all of this data will never be directly examined by a human.
 * Most of the images do not contain anything very novel.
+    * But even the boring images, when stacked...
+    * Is the Hubble Constant constant in different directions?
 * We still expect to find, on average, one detector-saturating SN1a *per
   night*.  A million well-characterized SN1e over the survey life.
-* Being stingy with the data is pretty self-defeating.
 * An interesting parallel to how particle physics evolved into a Big
   Data/Big Collaboration/Big Science field can be found in `Giant
   Telescopes`_.
@@ -351,8 +359,9 @@ A Different Way To Do Astronomy
 * Making your own private copy of the data set has become infeasible.
 * The analysis, not the data, is the professionally-valuable part.
 * How do we facilitate rapid iteration of analysis?
-    * Quickly try a lot of hypotheses and discard the unpromising ones.
-    * Once you have one you like, turn it loose on a lot of data.
+
+  * Quickly try a lot of hypotheses and discard unpromising ones.
+  * Once you have one you like, turn it loose on a lot of data.
 
 ----
 
@@ -369,11 +378,15 @@ characteristics:
 * The *real* analysis will be submitted to a batch system to work on
   petabyte-scale data.
 
+----
+
 What does this imply?
+#####################
 
 * It's not really about speed of data access or computation.
 * Access to completely arbitrary subsets of the data, however, is
   *absolutely crucial*.
+* Bring your code to the data, not the other way around.
 
 ----
 
@@ -391,7 +404,9 @@ Obviously the current system isn't ideal:
 
 * Enormous amounts of technical debt.
 
-But...it also gets the job done.
+But...it also gets the job done.  The analysis software encodes
+literally hundreds, perhaps thousands, of astronomer-years of work on
+difficult problems.
 
 We have to please a bunch of stakeholders.
 
@@ -408,34 +423,6 @@ developed is that someone takes a version (either a release version,
 approximately every 6 months, or a weekly build) and works on their own
 little corner of it in a conda or pip environment.  We must support
 that.
-
-----
-
-Community of Stakeholders
-#########################
-
-People Concerned With Data Rights
-=================================
-
-We *do* have to care who gets to see what, since the current belief in
-the astronomical community is that big discoveries will be made quickly.
-Since access is institutional or national, it's not quite as horrible as
-it could be.
-
-----
-
-Community of Stakeholders
-#########################
-
-Education and Public Outreach
-=============================
-
-Here's where Data Rights gets particularly thorny.  You need to have
-adequate data available to put together meaningful educational curricula
-and enable citizen science, but not so much, or of such fidelity, that
-someone without data rights can scoop a researcher with data rights.
-
-It is not entirely clear to me that this is possible.
 
 ----
 
@@ -555,14 +542,13 @@ You can say, "I need a kubernetes cluster that..."
 
 * has three service accounts:
 
-    * default privileges for one
+  * default privileges for one
 
-    * create/destroy/describe/list pods for the second
+  * create/destroy/describe/list pods for the second
 
-    * the same, plus cluster-wide reads, for the third
+  * the same, plus cluster-wide reads, for the third
 
-    * ("or just give me a cluster admin account and I'll take care of
-      it.")
+  * ("or just give me a cluster admin account; I'll take care of it.")
 
 ----
 
@@ -626,8 +612,8 @@ conceptually quite simple, and the implementation is not hard.
 * A container that will start a JupyterLab server.
 * Some way to wrap your analysis pipeline up as a Jupyter kernel.
 
-    * Which, assuming it's in a supported language, is probably `a few
-      lines of shell`_.
+  * Which, assuming it's in a supported language, is probably `a few
+    lines of shell`_.
 
 I would be flabbergasted if this approach were not portable to other
 physical sciences and very possibly to other (and very general) analytic
@@ -682,15 +668,14 @@ Deployment
 While our `GitHub`_ implementation is very nifty, and useful for
 reference...don't use it.
 
-Use `Zero To JupyterHub`_ instead.
-
-Some day we will probably migrate our deployment to Helm.  LSST EPO
-already has.
+Use `Zero To JupyterHub`_ instead.  It uses Helm.
 
 * Not convinced Helm is the future.
 
 * We need something like Helm but with sequencing as well.  Templates
   are the easy part.
+
+* Terraform is intriguing.
 
 ----
 
@@ -746,20 +731,7 @@ Now you have globally consistent users and groups.
 
 ----
 
-Problem 4: Restricting User Access
-##################################
-
-We control the environment in the newly-created Lab container.
-
-We use that to provision a user with the right UID+GIDs set.
-
-Then we become that user before starting the JupyterLab server.
-
-`[proc_screenshot] <images/screenshots/processes.png>`_
-
-----
-
-Problem 5: Persistent Storage
+Problem 4: Persistent Storage
 #############################
 
 We have globally unique UIDs and GIDs.
@@ -771,8 +743,8 @@ We have globally unique UIDs and GIDs.
 
 * We use NFS, because it's easy.
 
-    * We provision the space and volumes in the cloud.
-    * We point to an external NFS server at our LDF.
+  * We provision the space and volumes in the cloud, either in k8s or not.
+  * We point to an external NFS server at our LDF.
     
 * We could eventually be cleverer, but we're still going to make it look
   like a POSIX filesystem to our users.
@@ -781,12 +753,15 @@ We have globally unique UIDs and GIDs.
 
 ----
 
-Problem 6: User Access Restriction
+Problem 5: User Access Restriction
 ##################################
 
 Don't give your users ``sudo``.  Heck, don't even give them passwords.
 
-Globally-consistent UID and GIDs.
+Globally-consistent UID and GIDs.  Provision user as root at container
+startup.
+
+Don't start the JupyterLab service as root; start it as the user.
 
 You're done.
 
@@ -799,7 +774,7 @@ Users can still override bits of the stack with ``pip install --user``.
 
 ----
 
-Problem 7: Auditability and Maintainability
+Problem 6: Auditability and Maintainability
 ###########################################
 
 It's a container.  You know how you built it (at least if you use
@@ -807,7 +782,8 @@ particular package versions, not ``latest``).  It's repeatable and
 immutable.
 
 We look for regressions in the stack by creating an `options form`_ that
-scans our repository and presents a menu of recent builds.
+scans our repository and presents a menu of recent builds.  This also
+allows users to choose their risk tolerance.
 
 .. _options form: https://github.com/lsst-sqre/jupyterlabdemo/blob/master/jupyterhub/sample_configs/github/20-spawner.py
 
@@ -815,7 +791,7 @@ scans our repository and presents a menu of recent builds.
 
 ----
 
-Problem 8: Startup Time and User Frustration
+Problem 7: Startup Time and User Frustration
 ############################################
 
 Our images are huge and take on the order of 15 minutes to pull.
