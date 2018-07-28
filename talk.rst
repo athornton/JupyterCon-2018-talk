@@ -440,6 +440,8 @@ In practice: you need a Terminal window that gives you shell access to
 something that looks like a Unix system.  We mimic a system on which you
 have an unprivileged account, which is very familiar to academic users.
 
+There is something of an Uncanny Valley problem here.
+
 ----
 
 Community of Stakeholders
