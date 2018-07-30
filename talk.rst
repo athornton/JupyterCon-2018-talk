@@ -69,32 +69,44 @@ LSST Science Goals
 * LSST will perform a ten-year survey of the Southern sky: whole sky
   every three nights at optical and infrared wavelengths.
 
-* Primary goal: detection of faint transient objects:
+* Primary goal: detection of faint objects that change between visits:
 
-  * Near-Earth Objects (NEOs)
+  * Comprehensive solar system survey.
 
-  * Trans-Neptunian Objects (TNOs)
+    * NEOs (> 90% 140m objects by 2040).
 
-  * Type Ia Supernovae (SN1ae)
+    * Trans-Neptunian Objects (TNOs).
+
+  * Milky Way structure and stellar content.
+
+  * Transient phenomena at optical wavelengths.
+
+    * AGNs, SN1ae, neutron star/black hole mergers ...
+
+  * Dark Energy and Dark Matter.
+
+    * Only 4 percent of the mass and energy in the universe is baryonic.
+
+    * Is the Hubble Constant the same in every direction?
 
 ----
 
-What Can LSST See?
-##################
+Magnitude
+#########
 
-Single-visit detection to 24.7 magnitude, 10-year-stacked to 27.5 (red
-band).  That's very faint.  How faint?
+LSST Single-visit detection to 24.7 magnitude, 10-year-stacked to 27.5
+(red band).  That's very faint.  How faint?
 
-Depth
-=====
+* Tech debt: magnitude goes back to Hipparchus (150 BCE).
 
-Every five magnitudes is a factor of 100 in brightness.  You want tech
-debt?
+ * Ptolemy's catalogue survives (150 CE): first through sixth
+   magnitude.  (Still a good estimate for naked-eye; ideal conditions
+   and very good eyes, maybe 8th.)
 
-Your eyes: 6 magnitude.  Mmmmmaybe 8 under ideal conditions.  Ptolemy's
-faintest stars are "of the sixth magnitude."
+ * Pogson in 1856: 5 magnitudes is a factor of 100 in light flux.
 
-A good amateur scope: 14ish magnitude (eyes), around 20 with CCDs
+A good amateur scope: 14ish magnitude looking through an eyepiece,
+around 20 with CCDs.
 
 ----
 
@@ -103,9 +115,10 @@ Depth
 
 LSST depth
 ==========
-* Saturates at 16 magnitude
-* Single-visit (red) 24.7 magnitude
-* 10-year stacked depth (red) 27.5 magnitude
+* Saturates at 16 magnitude.
+* Single-visit (red) 24.7 magnitude.
+* 10-year stacked depth (red) 27.5 magnitude.
+* 30/400 million times fainter than naked-eye.
 
 Not the deepest
 ===============
@@ -120,7 +133,7 @@ Field of view
 
 Depth isn't everything
 
-* Humongous: 9.62 degrees :raw-role:`<sup>2</sup>`
+* Humongous: 9.62 degrees :raw-role:`<sup>2</sup>`.
 * 40 full moons; roughly a CD held at arm's length.
 * JWST, by contrast, is 9.7 arcmin :raw-role:`<sup>2</sup>`, so roughly 1/3600 of LSST.
 
@@ -133,10 +146,13 @@ Depth isn't everything
 Camera
 ======
 
-* Focal plane array: 3.2 Gpixels
-* 189 4K x 4K sensors (roughly 400 4K monitors)
-* 18 bits per pixel
-* Each exposure 15 seconds
+* Focal plane array: 3.2 Gpixels.
+
+  * Nadine Kurita, Project Manager for Camera, for scale.
+
+* 189 4K x 4K sensors (roughly 400 4K monitors).
+* 18 bits per pixel.
+* Each exposure 15 seconds.
 * Two exposures per visit (to do cosmic-ray/atmospheric transient
   rejection--and a bit of science).
 
@@ -149,11 +165,11 @@ Camera
 `LSST Mirror Design`_
 =====================
 
-* 8.4m, but that combines primary and tertiary
-    * Effective collection area equivalent to 5.6m mirror
+* 8.4m, but that combines primary and tertiary.
+    * Effective collection area equivalent to 5.6m mirror.
 * Not the largest primary telescope mirror, but...
 * The primary/tertiary mirror is the largest monolithic piece of glass
-  ever fabricated
+  ever fabricated.
 
 
 .. _LSST Mirror Design: https://www.lsst.org/about/tel-site/mirror
@@ -167,39 +183,38 @@ Camera
 Cost
 ####
 
-* Telescope: about $500 million (all numbers in 2013 dollars)
+* Telescope: about $500 million (all numbers in 2013 dollars).
 
-* Camera: about $165 million
+* Camera: about $165 million.
 
-* Operations
+* Operations:
 
-  * A little more than a dollar a second
+  * A little more than a dollar a second.
 
-  * On the order of $100,000 a day
+  * On the order of $100,000 a day.
 
-  * Roughly $35 million a year
+  * Roughly $35 million a year.
 
 ----
 
 Data Collection
 ###############
 
-* On the order of 20 TB a night (entire SDSS DR7 every three nights)
-* Half an exabyte in the final image collection by operational EOL
-  (DR11)
-* Over one trillion photometric measures of celestial sources
-* Reduced catalogue (which most people will use)
+* On the order of 20 TB a night (entire SDSS DR7 every three nights).
+* Half an exabyte in the final image collection (DR11).
+* Over one trillion photometric measures of celestial sources.
+* Reduced catalogue (which most people will use):
 
-  * Smaller than image collection--order of 50 PB
-  * tens of billions of (complex-structured) rows in a database.
+  * Smaller than image collection--order of 50 PB.
+  * Tens of billions of (complex-structured) rows in a database.
 
 ----
 
 
 Observations of Celestial Objects
 #################################
-* 10-40 million AGNs (quasars)
-* 300,000 supernovae a year
+* 10-40 million AGNs (quasars).
+* 300,000 supernovae a year.
 
   * Current detection rate is about 7,000 supernovae per year.  That's a
     fortyfold increase from current detection capabilities, from a
@@ -211,8 +226,8 @@ Observations of Celestial Objects
   * One goes off somewhere in the observable universe roughly every ten
     seconds.
     
-* Roughly 20 billion galaxies
-* Roughly 20 billion stars
+* Roughly 20 billion galaxies.
+* Roughly 20 billion stars.
 
   * So everyone could have about three of each.
 
@@ -227,15 +242,15 @@ Astronomical Research Status Quo
 
 Historically, astronomical research has been done with:
 
-* Desktop or laptop computer
-    * Usually pretty beefy by the standards of the day
-* Astronomical software
+* Desktop or laptop computer:
+    * Usually pretty beefy by the standards of the day.
+* Astronomical software:
     * Usually written by the researcher to address a particular
       hypothesis.
     * Usually written by a single astronomer, rather than a
       team of software engineers.
     * Maybe written by many astronomers, which is arguably worse.
-* Downloaded data stored locally
+* Downloaded data stored locally.
 
 ----
 
@@ -245,8 +260,7 @@ Obvious Failure Modes
 Personal or Departmental Machines
 =================================
 
-* A pretty beefy computer from ten years ago is today's worthless
-  paperweight.
+* A beefy computer from ten years ago is today's worthless paperweight.
 * Laptops get stolen a lot.
 * Individuals often are not careful about backing up data.
 * Academic departments care about research in their fields, not about IT
@@ -268,10 +282,11 @@ Analysis Software
   answers one question.
 
 * General-purpose in-house analysis stacks are often extremely complex
-  and difficult to install.
+  and difficult to install.  Much of this complexity is inherently
+  irreducible.
 
   * LSST stack's heritage, and a fair bit of the implementation, goes
-    back to SDSS (data collection began in 2000; in development earlier)
+    back to SDSS (data collection began in 2000; in development earlier).
 
   * An installation of the LSST stack from scratch takes hours for
     experienced users.
@@ -370,13 +385,13 @@ Interactive vs. Batch
 
 We expect that a researcher will use the "interactive notebook aspect of
 the LSST Science Platform" (by which we mean JupyterLab, or perhaps its
-successors) to perform this iteration.  Effectively, we make the
-interactive environment a rapid prototyping tool.  It has the following
-characteristics:
+successors) to perform this iteration.  It is a rapid prototyping tool
+with the following characteristics:
 
 * Relatively tiny subset of the data: a few terabytes, probably less.
 * The *real* analysis will be submitted to a batch system to work on
   petabyte-scale data.
+* We don't know what subset we want in advance.
 
 ----
 
@@ -393,8 +408,8 @@ What does this imply?
 Community Acceptance
 ####################
 
-The trickiest design goal is that we cannot make any researcher's life
-significantly worse.
+The trickiest design goal is that we cannot make any user's life
+significantly worse than the status quo.
 
 Obviously the current system isn't ideal:
 
@@ -406,7 +421,7 @@ Obviously the current system isn't ideal:
 
 But...it also gets the job done.  The analysis software encodes
 literally hundreds, perhaps thousands, of astronomer-years of work on
-difficult problems.
+difficult problems.  It is inherently complex.
 
 We have to please a bunch of stakeholders.
 
@@ -505,6 +520,7 @@ The Big Reveal
 
 JupyterHub + JupyterLab + Kubernetes
 ====================================
+
 * JupyterLab: the UX is much better than the classic notebook.
   Multiple panes within a single browser tab, including terminal
   sessions, is a tremendous feature, giving users basically an IDE.
@@ -527,30 +543,6 @@ Abstraction and Layering
   orchestration and lets you stop caring how your containers talk to
   each other or how the container network talks to the outside world and
   vice versa.
-
-----
-
-Specifying Resources
-####################
-
-You can say, "I need a kubernetes cluster that..."
-
-* has at least 3 nodes, but also at least 0.5 cores per concurrent user;
-  each core with at least 2GB of RAM.
-
-* has individual nodes with at least 8 cores / 16GB RAM.
-
-* has a predefined ingress controller.
-
-* has three service accounts:
-
-  * default privileges for one
-
-  * create/destroy/describe/list pods for the second
-
-  * the same, plus cluster-wide reads, for the third
-
-  * ("or just give me a cluster admin account; I'll take care of it.")
 
 ----
 
@@ -694,7 +686,7 @@ Authentication is annoying and hard.  Let's outsource it.
 * You do need a public endpoint with a verifiable TLS certificate to do
   the OAuth callback.
 
-* However, this is still way too open
+* However, this is still way too open: we need authorization as well.
 
 `[login_screenshot] <images/screenshots/cilogon.png>`_
 
@@ -725,7 +717,7 @@ Problem 3: Global User Consistency
 GitHub's user account ID fits into a 32-bit value.  Each GitHub
 Organization also has an ID.  There are our UID/GID maps.
 
-CILogon does something similar.
+CILogon + NCSA IDP does something similar.
 
 Now you have globally consistent users and groups.
 
@@ -758,12 +750,12 @@ We have globally unique UIDs and GIDs.
 Problem 5: User Access Restriction
 ##################################
 
-Don't give your users ``sudo``.  Heck, don't even give them passwords.
+Don't give your users ``sudo``.  Don't even give them passwords.
 
-Globally-consistent UID and GIDs.  Provision user as root at container
-startup.
+You already have globally-consistent UID and GIDs.  Use root to
+provision user with correct name/UID/GIDs as root at container startup.
 
-Don't start the JupyterLab service as root; start it as the user.
+Don't start the JupyterLab service as root; start it as the user instead.
 
 You're done.
 
