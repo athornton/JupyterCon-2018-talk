@@ -257,121 +257,29 @@ Historically, astronomical research has been done with:
 Obvious Failure Modes
 #####################
 
-Personal or Departmental Machines
-=================================
+* Local machine: age, security, IT practices.
 
-* A beefy computer from ten years ago is today's worthless paperweight.
-* Laptops get stolen a lot.
-* Individuals often are not careful about backing up data.
-* Academic departments care about research in their fields, not about IT
-  practices.
+* Software: applicability, software engineering.
 
-    * Your departmental system administrator is almost certainly a
-      graduate student doing it on the side.
-    * You don't have the budget for offsite backups and decent DR.
+* Data: scale, IT practices.
 
 ----
 
-Obvious Failure Modes
-#####################
+Data
+####
 
-Analysis Software
-=================
+* Access: too much for traditional hoarding model.
 
-* If individually-written, usually reinvents many wheels, and only
-  answers one question.
+* Rights: already very broad, and gameable to some degree.
 
-* General-purpose in-house analysis stacks are often extremely complex
-  and difficult to install.  Much of this complexity is inherently
-  irreducible.
-
-  * LSST stack's heritage, and a fair bit of the implementation, goes
-    back to SDSS (data collection began in 2000; in development earlier).
-
-  * An installation of the LSST stack from scratch takes hours for
-    experienced users.
-
-  * Taking weeks to install the first time is not unusual (also
-    consuming experienced users' time).
-
-  * I myself have never successfully managed a source install from
-    scratch.
-
-----
-
-Obvious Failure Modes
-#####################
-
-Scale of the Data
-=================
-
-Are you really going to download half an exabyte?
-
-* The input is 40 Gbps all night each night for 10 years.  How long
-  is it going to take you to slurp it back out of the data center?
-
-"Big Data is data you cannot pick up."
-
-* Is half an exabyte still going to be Big Data in 2032?
-* I wouldn't bet *against* it.
-  
-----
-
-Data Access
-###########
-
-Traditionally, you jealously guard your data so that you can publish
-first and not get scooped.
-
-* This works fine for small collaborations and projects.
-* LSST, on the other hand, has thousands of researchers with data
-  rights.
-* And anyway there's so much data that access to the analysis is going
-  to be much more valuable than access to the data.
-
-  * Not everyone gets this, yet.
-
-----
-
-Data Rights
-###########
-
-LSST has a fairly complicated data rights scheme...
-
-* Which turns out to be very broad.  Like, everyone affiliated with a US
-  or Chilean institution, plus anyone affiliated with a member
-  institution...
-* So maybe 10,000 out of 20,000 professional astronomers or advanced
-  students...
-* Any of whom can invite someone to collaborate with them on a paper...
-* So except for the two people who don't have any friends...
-
-  * They're theorists anyway.
-
-
-----
-
-Data Scale
-##########
-
-* Almost all of this data will never be directly examined by a human.
-* Most of the images do not contain anything very novel.
-    * But even the boring images, when stacked...
-    * Is the Hubble Constant constant in different directions?
-* We still expect to find, on average, one detector-saturating SN1a *per
-  night*.  A million well-characterized SN1e over the survey life.
-* An interesting parallel to how particle physics evolved into a Big
-  Data/Big Collaboration/Big Science field can be found in `Giant
-  Telescopes`_.
-
-.. _Giant Telescopes: http://www.hup.harvard.edu/catalog.php?isbn=9780674019966
+* Scale: most will never be directly examined by a human.
 
 ----
 
 A Different Way To Do Astronomy
 ###############################
 
-* Making your own private copy of the data set has become infeasible.
+* Making your own private copy of the data set becomes infeasible.
 * The analysis, not the data, is the professionally-valuable part.
 * How do we facilitate rapid iteration of analysis?
 
@@ -423,12 +331,12 @@ But...it also gets the job done.  The analysis software encodes
 literally hundreds, perhaps thousands, of astronomer-years of work on
 difficult problems.  It is inherently complex.
 
-We have to please a bunch of stakeholders.
+We have to please a bunch of groups of users.
 
 ----
 
-Community of Stakeholders
-#########################
+Community of Users
+##################
 
 Developers of the Analysis Pipeline
 ===================================
@@ -441,8 +349,8 @@ that.
 
 ----
 
-Community of Stakeholders
-#########################
+Community of Users
+##################
 
 Established Astronomers
 =======================
@@ -459,11 +367,11 @@ There is something of an Uncanny Valley problem here.
 
 ----
 
-Community of Stakeholders
-#########################
+Community of Users
+##################
 
-Security (and more generally Operations)
-========================================
+Security (and more generally Operational Support)
+=================================================
 
 .. image:: images/Dumpsterfire.gif
   :height: 300px
@@ -539,10 +447,8 @@ Abstraction and Layering
   hardware.
 * Containerization lets you stop caring about managing the
   OS/distribution layer.
-* Kubernetes gives you a standardized way to talk about container
-  orchestration and lets you stop caring how your containers talk to
-  each other or how the container network talks to the outside world and
-  vice versa.
+* Kubernetes lets you stop caring about managing the inter-component
+  networking of your application and container lifecycle management.
 
 ----
 
@@ -582,7 +488,7 @@ Kubernetes will save astronomy.
 Modularity
 ##########
 
-* Delineate plumbing from application.
+* Separate plumbing from application.
 * Provide a clear way to replace the value-added part (for us: the LSST
   Science Pipeline) with your own payload.
 * Retain the robust infrastructure with component lifecycle management
