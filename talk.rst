@@ -34,8 +34,8 @@ LSST
 Astronomical Analysis Methodologies
 ===================================
 
-Science Platform and Interactive Notebook Environment
-=====================================================
+Interactive Notebook Environment
+================================
 
 ----
 
@@ -383,10 +383,6 @@ system, where the user doesn't have ``root`` or ``sudo`` within the
 container, and has write access only to ``${HOME}`` and scratch space
 but not the OS, and furthermore we show that we can completely
 characterize the container's contents, it's a much easier sell.
-
-----
-
-|
 
 ----
 
