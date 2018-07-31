@@ -617,6 +617,25 @@ problem spaces.
 
 ----
 
+Contributing
+############
+
+The Jupyter community is awesome.
+
+JupyterLab is still changing fast:
+
+* Sometimes underdocumented.
+
+* Documentation is not very discoverable.
+
+* Everyone is busy working on their own projects.
+
+* The best way to proceed is to implement something and then wait for
+  the gasps of horror from the people who *are* experts, then do what
+  they say.
+
+----
+
 |
 
 ----
