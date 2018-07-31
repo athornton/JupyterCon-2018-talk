@@ -148,7 +148,7 @@ Camera
 
 * Focal plane array: 3.2 Gpixels.
 
-  * Nadine Kurita, Project Manager for Camera, for scale.
+  * Nadine Kurita, former Project Manager for Camera, for scale.
 
 * 189 4K x 4K sensors (roughly 400 4K monitors).
 * 18 bits per pixel.
@@ -205,7 +205,7 @@ Data Collection
 * Over one trillion photometric measures of celestial sources.
 * Reduced catalogue (which most people will use):
 
-  * Smaller than image collection--order of 50 PB.
+  * Smaller than image collection: order of 15 PB.
   * Tens of billions of (complex-structured) rows in a database.
 
 ----
