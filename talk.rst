@@ -28,8 +28,8 @@ athornton@lsst.org
 Overview
 ########
 
-LSST
-====
+Large Synoptic Survey Telescope
+===============================
 
 Astronomical Analysis Methodologies
 ===================================
@@ -37,13 +37,12 @@ Astronomical Analysis Methodologies
 Interactive Notebook Environment
 ================================
 
+|
+
 ----
 
 LSST Overview
 #############
-
-One more entertaining overview, one page of cool statistics, and a
-thorough overview:
 
 * `Andy Connolly's LSST TED Talk`_.
 
@@ -91,22 +90,31 @@ LSST Science Goals
 
 ----
 
-Magnitude
-#########
+Data Collection Scale
+#####################
 
-LSST Single-visit detection to 24.7 magnitude, 10-year-stacked to 27.5
-(red band).  That's very faint.  How faint?
+* About 20 TB a night (entire SDSS DR7 every three nights).
+* Half an exabyte in the final image collection (DR11).
+* Over one trillion photometric measures of celestial sources.
+* Reduced catalogue (which most people will use):
 
-* Tech debt: magnitude goes back to Hipparchus (150 BCE).
+  * Smaller than image collection: order of 15 PB.
+  * Tens of billions of (complex-structured) rows in a database.
 
- * Ptolemy's catalogue survives (150 CE): first through sixth
-   magnitude.  (Still a good estimate for naked-eye; ideal conditions
-   and very good eyes, maybe 8th.)
+----
 
- * Pogson in 1856: 5 magnitudes is a factor of 100 in light flux.
+Data Scale
+##########
 
-A good amateur scope: 14ish magnitude looking through an eyepiece,
-around 20 with CCDs.
+* The data is too big to move easily.
+
+* Hence the need for a standardized compute deployment environment that
+  facilitates rapid iteration through hypotheses that consider arbitrary
+  subsets of the data.
+
+* This is at odds with the historical method of astronomical analysis.
+
+* We have an answer for this...but first, some LSST science numbers.
 
 ----
 
@@ -134,8 +142,13 @@ Field of view
 Depth isn't everything
 
 * Humongous: 9.62 degrees :raw-role:`<sup>2</sup>`.
+
 * 40 full moons; roughly a CD held at arm's length.
-* JWST, by contrast, is 9.7 arcmin :raw-role:`<sup>2</sup>`, so roughly 1/3600 of LSST.
+
+* JWST, by contrast, is 9.7 arcmin :raw-role:`<sup>2</sup>`, so roughly
+  1/3600 of LSST.
+
+* This lets us cover the whole Southern sky in three nights.
 
 .. image:: images/fov.png
   :height: 400px
@@ -197,20 +210,6 @@ Cost
 
 ----
 
-Data Collection
-###############
-
-* On the order of 20 TB a night (entire SDSS DR7 every three nights).
-* Half an exabyte in the final image collection (DR11).
-* Over one trillion photometric measures of celestial sources.
-* Reduced catalogue (which most people will use):
-
-  * Smaller than image collection: order of 15 PB.
-  * Tens of billions of (complex-structured) rows in a database.
-
-----
-
-
 Observations of Celestial Objects
 #################################
 * 10-40 million AGNs (quasars).
@@ -261,14 +260,12 @@ Obvious Failure Modes
 
 * Software: applicability, software engineering.
 
-* Data: scale, IT practices.
+* Data: scale, backups, DR.
 
 ----
 
 Data
 ####
-
-* Access: too much for traditional hoarding model.
 
 * Rights: already very broad, and gameable to some degree.
 
@@ -279,7 +276,6 @@ Data
 A Different Way To Do Astronomy
 ###############################
 
-* Making your own private copy of the data set becomes infeasible.
 * The analysis, not the data, is the professionally-valuable part.
 * How do we facilitate rapid iteration of analysis?
 
@@ -313,6 +309,23 @@ What does this imply?
 
 ----
 
+What Do We Want?
+################
+
+Let's imagine a better world:
+
+* You don't need to spend hours-to-weeks setting up the software
+  environment.
+* In fact, all that's needed for analysis is a web browser.  Compute and
+  data storage happen somewhere else.
+* You have a single login to manage your access to the environment.
+* You don't need to pick a data subset that will fit on your laptop or
+  your desktop NAS.
+* The analysis is running on professionally-maintained machines in a
+  real datacenter somewhere that it isn't your problem.
+
+----
+
 Community Acceptance
 ####################
 
@@ -331,15 +344,28 @@ But...it also gets the job done.  The analysis software encodes
 literally hundreds, perhaps thousands, of astronomer-years of work on
 difficult problems.  It is inherently complex.
 
-We have to please a bunch of groups of users.
+We have to please several different groups of users.
 
 ----
 
-Community of Users
-##################
+User Community
+##############
 
-Developers of the Analysis Pipeline
-===================================
+Analysis Pipeline Consumers
+===========================
+
+We have this one covered.  If you want to use the existing toolset to
+analyze collected data, and you're not coming to the project with a lot
+of prior experience or actively developing the pipeline software, we're
+delivering a far superior way to get your work done than the prior art.
+
+----
+
+User Community
+##############
+
+Analysis Pipeline Developers
+============================
 
 The LSST stack is big.  No one works on the whole thing.  The way it's
 developed is that someone takes a version (either a release version,
@@ -349,15 +375,15 @@ that.
 
 ----
 
-Community of Users
-##################
+User Community
+##############
 
 Established Astronomers
 =======================
 
-Kids these days with their fancy-pants Jupyter notebooks and their HDF5
-data representations, but dangit FORTRAN IV and FITS were good enough
-for my grandpappy an' they're good enough for me!  GET OFFA MY LAWN!
+The people who have tenure and bring in the grants already have a
+workflow that works well for them.  Sure, it's based on FORTRAN IV and
+FITS files, but they've gotten really, really good at it.
 
 In practice: you need a Terminal window that gives you shell access to
 something that looks like a Unix system.  We mimic a system on which you
@@ -367,11 +393,11 @@ There is something of an Uncanny Valley problem here.
 
 ----
 
-Community of Users
-##################
+User Community
+##############
 
-Security (and more generally Operational Support)
-=================================================
+Security; generally, Operational Support
+========================================
 
 .. image:: images/Dumpsterfire.gif
   :height: 300px
@@ -383,37 +409,6 @@ system, where the user doesn't have ``root`` or ``sudo`` within the
 container, and has write access only to ``${HOME}`` and scratch space
 but not the OS, and furthermore we show that we can completely
 characterize the container's contents, it's a much easier sell.
-
-----
-
-What Do We Want?
-################
-
-Let's imagine a better world:
-
-* You don't need to spend hours-to-weeks setting up the software
-  environment.
-* In fact, all that's needed for analysis is a web browser.  Compute and
-  data storage happen somewhere else.
-* You have a single login to manage your access to the environment.
-* You don't need to pick a data subset that will fit on your laptop or
-  your desktop NAS.
-* The analysis is running on professionally-maintained machines in a
-  real datacenter somewhere that it isn't your problem.
-
-----
-
-Let's Think Bigger
-##################
-
-* Logging and metrics are aggregated, centralized, and reported on an
-  operations dashboard.
-* The analysis environment supports a publication paradigm that enables
-  verification and reproducability of results.
-* The analysis environment is amenable to a bring-your-own-data
-  approach.
-* There's a standardized, modular infrastructure, allowing
-  piece-by-piece component replacement of your application stack.
 
 ----
 
@@ -445,23 +440,6 @@ Abstraction and Layering
   OS/distribution layer.
 * Kubernetes lets you stop caring about managing the inter-component
   networking of your application and container lifecycle management.
-
-----
-
-Scaling
-#######
-
-Step one: Add more nodes to your cluster.  (Or take some away.)
-
-* In a public cloud, this is really, really easy.  Perhaps even
-  automated.
-
-Step two: Change the replica counts in your deployments.
-
-* You can turn this into a closed-loop automated system by monitoring
-  your load too.
-
-There is no step three.
 
 ----
 
@@ -502,7 +480,7 @@ Modularity
 Replacing the payload is a matter of replacing the JupyterLab container
 that is spawned for the user.
 
-Assuming you have the analysis pipeline already, what you need is
+Assuming you have an analysis pipeline already, what you need is
 conceptually quite simple, and the implementation is not hard.
 
 * A container that will start a JupyterLab server.
@@ -516,6 +494,23 @@ physical sciences and very possibly to other (and very general) analytic
 problem spaces. 
 
 .. _a few lines of shell: https://github.com/lsst-sqre/jupyterlabdemo/blob/master/jupyterlab/lsstlaunch.bash
+
+----
+
+Scaling
+#######
+
+Step one: Add more nodes to your cluster.  (Or take some away.)
+
+* In a public cloud, this is really, really easy.  Perhaps even
+  automated.
+
+Step two: Change the replica counts in your deployments.
+
+* You can turn this into a closed-loop automated system by monitoring
+  your load too.
+
+There is no step three.
 
 ----
 
@@ -740,6 +735,8 @@ Resources
 
 Live Demo
 #########
+
+|
 
 ----
 
