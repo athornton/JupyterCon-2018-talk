@@ -23,6 +23,20 @@ LSST
 
 athornton@lsst.org
 
+.. image:: images/qr.png
+  :align: right
+
+----
+
+This Talk
+#########
+
+* https://athornton.github.io/JupyterCon-2018-talk
+* http://ls.st/ujf
+
+.. image:: images/qr.png
+  :align: right
+
 ----
 
 Overview
@@ -730,6 +744,17 @@ Resources
 .. _JupyterLab (and Hub) Gitter: https://gitter.im/jupyterlab/jupyterlab
 
 .. _LSST JupyterLab Implementation: https://github.com/lsst-sqre/jupyterlabdemo
+
+----
+
+This Talk
+#########
+
+* https://athornton.github.io/JupyterCon-2018-talk
+* http://ls.st/ujf
+
+.. image:: images/qr.png
+  :align: right
 
 ----
 
