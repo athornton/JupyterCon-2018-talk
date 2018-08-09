@@ -181,7 +181,7 @@ Camera
 * 18 bits per pixel.
 * Each exposure 15 seconds.
 * Two exposures per visit (to do cosmic-ray/atmospheric transient
-  rejection--and a bit of science).
+  rejection, plus a bit of science).
 
 .. image:: images/camera.png
   :height: 400px
@@ -229,9 +229,7 @@ Observations of Celestial Objects
 * 10-40 million AGNs (quasars).
 * 300,000 supernovae a year.
 
-  * Current detection rate is about 7,000 supernovae per year.  That's a
-    fortyfold increase from current detection capabilities, from a
-    single instrument.
+  * Current detection rate is about 7,000 supernovae per year.
     
   * A supernova explodes in a Milky-Way-scale galaxy once every few
     hundred years.
@@ -309,7 +307,7 @@ with the following characteristics:
 * Relatively tiny subset of the data: a few terabytes, probably less.
 * The *real* analysis will be submitted to a batch system to work on
   petabyte-scale data.
-* We don't know what subset we want in advance.
+* We don't (and can't) know what subset we want in advance.
 
 ----
 
@@ -744,17 +742,6 @@ Resources
 .. _JupyterLab (and Hub) Gitter: https://gitter.im/jupyterlab/jupyterlab
 
 .. _LSST JupyterLab Implementation: https://github.com/lsst-sqre/jupyterlabdemo
-
-----
-
-This Talk
-#########
-
-* https://athornton.github.io/JupyterCon-2018-talk
-* http://ls.st/ujf
-
-.. image:: images/qr.png
-  :align: right
 
 ----
 
