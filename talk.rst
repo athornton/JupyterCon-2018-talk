@@ -36,6 +36,11 @@ This Talk
 * https://athornton.github.io/JupyterCon-2018-talk
 * http://ls.st/ujf
 
+Licensed under Creative Commons Attribution 4.0 International license
+(`CC BY 4.0`)
+
+.. _CC BY 4.0: https://creativecommons.org/licenses/by/4.0/legalcode
+
 .. image:: images/qr.png
   :align: right
 
