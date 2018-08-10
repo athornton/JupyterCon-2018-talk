@@ -28,6 +28,8 @@ athornton@lsst.org
 
 ----
 
+:data-x: r4800
+
 This Talk
 #########
 
@@ -53,26 +55,17 @@ Interactive Notebook Environment
 
 |
 
+
 ----
 
-LSST Overview
-#############
+LSST
+####
 
-* `Andy Connolly's LSST TED Talk`_.
+The Large Synoptic Survey Telescope
+===================================
 
-* `LSST Key Numbers`_.
-
-* `LSST Overview Paper`_.
-
-* The Large Synoptic Survey Telescope is funded by the National Science
-  Foundation and the Department of Energy, as well as a host of other
-  generous donors, public and private.
-
-.. _Andy Connolly's LSST TED Talk: https://www.ted.com/talks/andrew_connolly_what_s_the_next_window_into_our_universe
-
-.. _LSST Key Numbers: https://confluence.lsstcorp.org/display/LKB/LSST+Key+Numbers
-
-.. _LSST Overview Paper: https://arxiv.org/abs/0805.2366
+LSST is funded by the National Science Foundation and the Department of
+Energy, as well as a host of other generous donors, public and private.
 
 ----
 
@@ -102,6 +95,11 @@ LSST Science Goals
 
     * Is the Hubble Constant the same in every direction?
 
+.. note::
+
+    Just say "objects at every astronomical scale" and list the four.
+    Don't describe them.
+
 ----
 
 Data Collection Scale
@@ -128,23 +126,62 @@ Data Scale
 
 * This is at odds with the historical method of astronomical analysis.
 
-* We have an answer for this...but first, some LSST science numbers.
+* We have an answer for this, but first...what is that data?
+
+----
+
+Observations of Celestial Objects
+#################################
+* 10-40 million AGNs (quasars).
+* 300,000 supernovae a year.
+
+  * Current detection rate is about 7,000 supernovae per year.
+    
+  * A supernova explodes in a Milky-Way-scale galaxy once every few
+    hundred years.
+    
+  * One goes off somewhere in the observable universe roughly every ten
+    seconds.
+    
+* Roughly 20 billion galaxies.
+* Roughly 20 billion stars.
+
+  * So everyone could have about three of each.
+
+----
+
+LSST Resources
+##############
+
+* `Andy Connolly's LSST TED Talk`_.
+
+* `LSST Key Numbers`_.
+
+* `LSST Overview Paper`_.
+
+.. _Andy Connolly's LSST TED Talk: https://www.ted.com/talks/andrew_connolly_what_s_the_next_window_into_our_universe
+
+.. _LSST Key Numbers: https://confluence.lsstcorp.org/display/LKB/LSST+Key+Numbers
+
+.. _LSST Overview Paper: https://arxiv.org/abs/0805.2366
+
 
 ----
 
 Depth
 #####
 
-LSST depth
-==========
-* Saturates at 16 magnitude.
-* Single-visit (red) 24.7 magnitude.
-* 10-year stacked depth (red) 27.5 magnitude.
-* 30/400 million times fainter than naked-eye.
+Deepest ground-based survey telescope
+=====================================
 
-Not the deepest
-===============
+* Naked eye: 6 magnitude.
+* Single-visit (red): 24.7 magnitude.
+* 10-year stacked depth (red): 27.5 magnitude.
+* 30/400 million times fainter than naked eye.
 
+However...
+
+* Not the deepest *telescope*.
 * Hubble Space Telescope: 31.
 * James Webb Space Telescope: 34 magnitude (expected)
 
@@ -153,9 +190,9 @@ Not the deepest
 Field of view
 #############
 
-Depth isn't everything
+Depth isn't everything.
 
-* Humongous: 9.62 degrees :raw-role:`<sup>2</sup>`.
+* Humongous FoV: 9.62 degrees :raw-role:`<sup>2</sup>`.
 
 * 40 full moons; roughly a CD held at arm's length.
 
@@ -205,14 +242,20 @@ Camera
   :height: 400px
   :align: center
 
+.. note::
+
+    Larger mirrors are generally segmented rather than monolithic.
+
 ----
 
 Cost
 ####
 
-* Telescope: about $500 million (all numbers in 2013 dollars).
+* Observatory: about $500 million (all numbers in 2013 dollars).
 
 * Camera: about $165 million.
+
+* Primary/tertiary mirror: about $25 million.
 
 * Operations:
 
@@ -224,23 +267,10 @@ Cost
 
 ----
 
-Observations of Celestial Objects
-#################################
-* 10-40 million AGNs (quasars).
-* 300,000 supernovae a year.
+Site
+####
 
-  * Current detection rate is about 7,000 supernovae per year.
-    
-  * A supernova explodes in a Milky-Way-scale galaxy once every few
-    hundred years.
-    
-  * One goes off somewhere in the observable universe roughly every ten
-    seconds.
-    
-* Roughly 20 billion galaxies.
-* Roughly 20 billion stars.
-
-  * So everyone could have about three of each.
+:raw-role:`<iframe width="1165" height="655" src="https://www.youtube.com/embed/bhuadLB7jvc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`
 
 ----
 
@@ -248,8 +278,8 @@ Observations of Celestial Objects
 
 ----
 
-Astronomical Research Status Quo
-################################
+Astronomical Status Quo
+#######################
 
 Historically, astronomical research has been done with:
 
@@ -279,7 +309,10 @@ Obvious Failure Modes
 Data
 ####
 
-* Rights: already very broad, and gameable to some degree.
+* Rights: already extremely broad.
+
+    * Roughly half the astronomical community.
+    * Finding reviewers for the overview paper has been hard.
 
 * Scale: most will never be directly examined by a human.
 
@@ -429,17 +462,17 @@ The Big Reveal
 
 (Not actually a surprise to anyone at this conference.)
 
-JupyterHub + JupyterLab + Kubernetes
+Kubernetes + JupyterHub + JupyterLab
 ====================================
 
+* Kubernetes: it clearly won.  Google, Amazon, and Azure all offer
+  managed Kubernetes infrastructure.
 * JupyterLab: the UX is much better than the classic notebook.
   Multiple panes within a single browser tab, including terminal
   sessions, is a tremendous feature, giving users basically an IDE.
 * JupyterHub: the obvious choice for access control and resource
   allocation brokering.  Authenticator and Spawner subclasses let us
   do some really nifty things, which you will see.
-* Kubernetes: it clearly won.  Google, Amazon, and Azure all offer
-  managed Kubernetes infrastructure.
 
 ----
 
@@ -486,26 +519,25 @@ general-purpose, self-healing application architecture.
 
 ----
 
-Modularity
-##########
+Presenting the Analysis Component
+#################################
 
 Replacing the payload is a matter of replacing the JupyterLab container
-that is spawned for the user.
-
-Assuming you have an analysis pipeline already, what you need is
-conceptually quite simple, and the implementation is not hard.
+that is spawned for the user.  All you need is:
 
 * A container that will start a JupyterLab server.
-* Some way to wrap your analysis pipeline up as a Jupyter kernel.
-
-  * Which, assuming it's in a supported language, is probably `a few
-    lines of shell`_.
+* `Some way`_ to wrap your analysis pipeline up as a Jupyter kernel.
 
 I would be flabbergasted if this approach were not portable to other
 physical sciences and very possibly to other (and very general) analytic
 problem spaces. 
 
-.. _a few lines of shell: https://github.com/lsst-sqre/jupyterlabdemo/blob/master/jupyterlab/lsstlaunch.bash
+.. _Some way: https://github.com/lsst-sqre/jupyterlabdemo/blob/master/jupyterlab/lsstlaunch.bash
+
+.. image:: images/kernel.png
+  :height: 300px
+  :align: center
+
 
 ----
 
@@ -730,8 +762,8 @@ starts quickly.
 
 ----
 
-Resources
-#########
+JupyterLab Resources
+####################
 
 * `Zero To JupyterHub`_.
 * `JupyterLab (and Hub) Gitter`_.
@@ -743,14 +775,10 @@ Resources
 
 .. _LSST JupyterLab Implementation: https://github.com/lsst-sqre/jupyterlabdemo
 
-----
-
-Live Demo
-#########
-
-|
 
 ----
 
-Questions
-#########
+.. image:: images/screenshot.png
+    :height: 768px
+
+
