@@ -105,7 +105,7 @@ LSST Science Goals
 Data Collection Scale
 #####################
 
-* About 20 TB a night (entire SDSS DR7 every three nights).
+* About 20 TB a night (roughly entire HST lifetime each week)
 * Half an exabyte in the final image collection (DR11).
 * Over one trillion photometric measures of celestial sources.
 * Reduced catalogue (which most people will use):
