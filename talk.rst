@@ -206,9 +206,12 @@ Depth isn't everything.
 
 * This lets us cover the whole Southern sky in three nights.
 
+* Image by Nate Lust, based on data from the HSC collaboration.
+
 .. image:: images/fov.png
   :height: 400px
   :align: center
+  :alt: Image by Nate Lust, based on data from the HSC collaboration.
 
 ----
 
@@ -452,6 +455,7 @@ Security; generally, Operational Support
 .. image:: images/Dumpsterfire.gif
   :height: 300px
   :align: center
+  :alt: Image composition by Abbey Yacoe.
 
 
 It's a fair cop, but if if we make it look like an existing multi-user
@@ -459,6 +463,8 @@ system, where the user doesn't have ``root`` or ``sudo`` within the
 container, and has write access only to ``${HOME}`` and scratch space
 but not the OS, and furthermore we show that we can completely
 characterize the container's contents, it's a much easier sell.
+
+* Image by Abbey Yacoe.
 
 ----
 
@@ -785,5 +791,6 @@ JupyterLab Resources
 
 .. image:: images/screenshot.png
     :height: 768px
+    :align: left
 
 
